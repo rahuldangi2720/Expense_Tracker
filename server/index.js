@@ -11,7 +11,7 @@ connectDB();
 const app = express();
 const PORT = 8000
 app.use(bodyParser.json({ 
-  origin: 'https://expense-tracker-phi-lake.vercel.app/',  
+  origin: 'https://expensetrackerbeckend.vercel.app/',  
   methods: 'GET,POST,PUT,DELETE',
   credentials: true,
 }));
