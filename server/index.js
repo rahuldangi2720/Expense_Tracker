@@ -10,7 +10,7 @@ const morgan = require("morgan")
 
 connectDB();
 const app = express();
-const PORT = 8000
+const PORT = 'https://expensetrackerbeckend.vercel.app' || 8000;
 app.use(bodyParser.json(
   { 
   origin: 'https://expensetrackerfrontend-psi.vercel.app/',  
