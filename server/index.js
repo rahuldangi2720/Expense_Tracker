@@ -9,15 +9,16 @@ dotenv.config({ path: "./config/config.env" });
 const morgan = require("morgan")
 
 connectDB();
+const PORT =8000
 const app = express();
-const PORT = 'https://expensetrackerbeckend.vercel.app' || 8000;
-app.use(bodyParser.json(
-  { 
-  origin: 'https://expensetrackerfrontend-psi.vercel.app/',  
-  methods: 'GET,POST,PUT,DELETE',
-  credentials: true,
-}
-));
+app.use(
+  cors({
+    origin:"http://localhost:3000", 
+    methods: ["GET", "POST","PUT"],
+    credentials: true,
+  })
+);
+app.use(bodyParser.json({limit:"30mb"}));
 app.use(cors());
 app.use(morgan("dev"))
 app.use("/auth", AuthRouter);
