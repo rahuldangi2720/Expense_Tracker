@@ -11,7 +11,7 @@ AuthRouter.post("/SignUp", async (req, res) => {
   } else {
     const newUser = new AuthModel(req.body);
     const saveduser = await newUser.save();
-    res.send("Your account has been created")
+    res.send({saveduser,msg:"usercreated"})
   }
 });
 
